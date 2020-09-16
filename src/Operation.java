@@ -20,11 +20,19 @@ class Operation {
     public void printEvent(int x , Node node , boolean isFull) {
         String outPutString = "";
         if (isFull && x > 0){
-            outPutString = x+"--->  (  +- client  )";
+            //adding my changes here
+            if(!queue.isEmpt()){
+            Node client = queue.removeHead();
+            }
+            outPutString = x+"--->  (  "+-" +  client.name  )";
         }
 
         if (x == 0){
-            outPutString = x+"--->  (  -- client  )";
+            //adding my changes here
+            if(!queue.isEmpty()){
+            Node client = queue.removeHead();
+            }
+            outPutString = x+"--->  (  "--" + client.name  )";
         }else if(x == 1){
             outPutString = x+" ---> (  ++ VIP"+Node.LAST_VIP_INDEX+1+"  )";
         }else if (x == 2 || x == 3){
